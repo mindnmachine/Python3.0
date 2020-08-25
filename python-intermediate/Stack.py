@@ -1,9 +1,15 @@
 class Stack(object):
+
     def __init__(self, limit = 10):
         self.stk = []
         self.limit = limit
+
     def isEmpty(self):
-        return len(self.stk)
+        if self.stk:
+            return len(self.stk)
+        else:
+            print ("Stack is Empty")
+            
     
 
     def peek(self):
@@ -34,9 +40,11 @@ class Stack(object):
             return len(self.stk)    
 
 my_stack = Stack(5)
+my_stack.isEmpty()
 my_stack.push("5")
 my_stack.push("15")
 my_stack.push("25")
+print("Stack size is",my_stack.isEmpty())
 my_stack.push("35")
 my_stack.push("45")
 my_stack.push("55")
