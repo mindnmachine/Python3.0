@@ -23,6 +23,7 @@ class Stack(object):
     def push(self,item):
             if len(self.stk) >= self.limit:
                     print("Stack Overflow")
+                    self.resize(); 
             else:
                     self.stk.append(item)
             print("Stack after Push \n", self.stk)
@@ -39,6 +40,11 @@ class Stack(object):
     def size(self):
             return len(self.stk)    
 
+
+    def resize(self):
+        print("Resize:Doubling Stack size :\n")
+        self.limit = 2*(self.limit)
+
 my_stack = Stack(5)
 my_stack.isEmpty()
 my_stack.push("5")
@@ -49,7 +55,13 @@ my_stack.push("35")
 my_stack.push("45")
 my_stack.push("55")
 my_stack.push("65")
-my_stack.push("75")
+my_stack.push("87")
+my_stack.push("9")
+my_stack.push("31")
+my_stack.push("47")
+my_stack.push("88")
+my_stack.push("98")
+my_stack.push("99")
 print(my_stack.peek())
 print(my_stack.pop())
 print(my_stack.peek())
