@@ -13,6 +13,9 @@ def matches(topSymbol, symbols):
     else:
        return 0
 
+def errorHandling(balanced):
+    balanced = 0
+
 def checkSymbolBalance(input):
     symbolstack = Stack()
     balanced =0
@@ -22,16 +25,19 @@ def checkSymbolBalance(input):
             symbolstack.push(symbols)
         else:
             if symbolstack.isEmpty() == 0:
-                balanced = 0
-                return balanced
+                return errorHandling(balanced)
             else:
                 topSymbol = symbolstack.pop()
+                if topSymbol == 0:
+                   errorHandling(balanced)
+                   break
+
                 if matches(topSymbol, symbols): 
                     balanced = 1
                 else:
                     balanced = 0
 
-    if symbolstack.isEmpty() == None:
+    if symbolstack.isEmpty() == None and topSymbol != 0:
         balanced = 1
         print(" Symbols are perfectly matched")
     else:
@@ -40,5 +46,15 @@ def checkSymbolBalance(input):
 
     return balanced
 
-print(checkSymbolBalance("{{([][])}()}(){}[]"))
-print(checkSymbolBalance("{{([][])}(){"))
+string1 ="{{{([][])}()}(){}[]}"
+string2 = "{{([][])}(){"
+string3 = "{{}}(([][]))()"
+
+print("String passed is ",string1)
+print(checkSymbolBalance(string1))
+
+print("String passed is ",string2)
+print(checkSymbolBalance(string2))
+
+print("String passed is ",string3)
+print(checkSymbolBalance(string3))
