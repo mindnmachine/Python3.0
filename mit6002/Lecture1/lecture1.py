@@ -11,8 +11,8 @@ class Food(object):
     def density(self):
         return self.getValue()/self.getCost()
     def __str__(self):
-        return self.name + ': <' + str(self.value)\
-                 + ', ' + str(self.calories) + '>'
+        return self.name + '  : <Value :' + str(self.value)\
+                 + ', <Calories :' + str(self.calories) + '>'
 
 def buildMenu(names, values, calories):
     """names, values, calories lists of same length.
@@ -20,9 +20,11 @@ def buildMenu(names, values, calories):
        values and calories lists of numbers
        returns list of Foods"""
     menu = []
+    print("Values", names)
     for i in range(len(values)):
         menu.append(Food(names[i], values[i],
                           calories[i]))
+        print(menu[i])
     return menu
 
 def greedy(items, maxCost, keyFunction):
@@ -49,6 +51,7 @@ def testGreedys(foods, maxUnits):
     print('Use greedy by value to allocate', maxUnits,
           'calories')
     testGreedy(foods, maxUnits, Food.getValue)
+    
     print('\nUse greedy by cost to allocate', maxUnits,
           'calories')
     testGreedy(foods, maxUnits,
@@ -58,9 +61,10 @@ def testGreedys(foods, maxUnits):
     testGreedy(foods, maxUnits, Food.density)
 
 
-names = ['wine', 'beer', 'pizza', 'burger', 'fries',
-         'cola', 'apple', 'donut', 'cake']
-values = [89,90,95,100,90,79,50,10]
-calories = [123,154,258,354,365,150,95,195]
+names = ['water','wine', 'beer', 'pizza', 'burger', 'fries',
+         'cola', 'apple', 'donut', 'cake','greentea']
+values = [2,89,90,95,100,90,79,10,65,50,5]
+calories = [1,123,154,258,354,365,150,95,200,195,80]
+
 foods = buildMenu(names, values, calories)
-testGreedys(foods, 1000)
+testGreedys(foods, 1500)
