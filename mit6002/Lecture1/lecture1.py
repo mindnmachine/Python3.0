@@ -11,7 +11,7 @@ class Food(object):
     def density(self):
         return self.getValue()/self.getCost()
     def __str__(self):
-        return self.name + '  : <Value :' + str(self.value)\
+        return self.name + '  : <Value : ' + str(self.value)+'>'\
                  + ', <Calories :' + str(self.calories) + '>'
 
 def buildMenu(names, values, calories):
