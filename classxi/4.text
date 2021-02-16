@@ -1,0 +1,16 @@
+line = str(input("Enter a string "))
+n = len(line)
+count = 0
+total = 0
+for i in range(n):
+        if (line[i] == 'A' or line[i] == 'E' or
+            line[i] == 'I' or line[i] == 'O' or
+            line[i] == 'U' or
+            line[i] == 'a' or line[i] == 'e' or
+            line[i] == 'i' or line[i] == 'o' or
+            line[i] == 'u'):
+            count += 1
+        total += 1
+
+print("Total", total)
+print("Count of all vowels", count)
