@@ -1,0 +1,15 @@
+l  = int(input("Enter the lower range:"))
+u  = int(input("Enter the upper range:"))
+
+numlist =[]
+numlist = [x for x in range(l, u+1) if(int(x**0.5))**2 == x and sum(list(map(int,str(x))))<10 ]
+print(numlist)
+
+a = []
+for x in range(l, u+1):
+    if(int(x**0.5)**2) == x:
+        if(sum(list(map(int,str(x))))<10):
+            a.append(x)
+print(a)
+        
+
